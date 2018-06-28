@@ -1,0 +1,19 @@
+{
+  "name": "tslearning",
+  "version": "1.0.0",
+  "description": "<https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlanZhang001/tslearning.git"
+  },
+  "author": "alanzhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlanZhang001/tslearning/issues"
+  },
+  "homepage": "https://github.com/AlanZhang001/tslearning#readme"
+}
