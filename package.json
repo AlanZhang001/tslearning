@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/AlanZhang001/tslearning/issues"
   },
-  "homepage": "https://github.com/AlanZhang001/tslearning#readme"
+  "homepage": "https://github.com/AlanZhang001/tslearning#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-typescript": "^5.0.0-alpha.2",
+    "typescript": "^2.9.2"
+  }
 }
