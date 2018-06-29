@@ -4,3 +4,4 @@ class Student {
         this.fullName = firstName + " " + middleInitial + " " + lastName;
     }
 }
+console.log(new Student('1','2','3'));
