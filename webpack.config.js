@@ -15,7 +15,7 @@ function getEntrys() {
     var entry = {};
     var files = glob.sync('./app/scripts/**/*Main.js');
 
-    files.forEach(function (item, index) {
+    files.forEach(function(item, index) {
         entry[item.substring(rootPath.length, item.lastIndexOf('.js'))] = item;
     });
 
@@ -35,7 +35,8 @@ module.exports = env => {
             ],
             alias: {
                 'vue': 'vue/dist/vue'
-            }
+            },
+            extensions: [".ts", ".tsx", ".js", ".json",'.vue']
         },
         resolveLoader: {
             alias: {
@@ -52,21 +53,30 @@ module.exports = env => {
             }, {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
-            }, {
+            },
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader"
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             }, {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: [{
+                    loader:'source-map-loader',
+                    options:{
+                        enforce: "pre"
+                    }
+                },{
+                    loader: 'babel-loader',
+                }]
             }]
         },
         devtool: isProdEnv ? 'hidden-source-map' : 'source-map',
-        plugins: ((function(){
-            var _plugins = [
-            ];
+        plugins: ((function() {
+            var _plugins = [];
 
             return _plugins;
         })()),
