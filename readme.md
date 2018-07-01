@@ -23,4 +23,8 @@ var Student = /** @class */ (function () {
     }
     return Student;
 }());
+
+2. TypeScript支持与JavaScript几乎相同的数据类型，此外还提供了实用的枚举类
+enum Color {Red, Green, Blue}
+let c: Color = Color.Green;
 ```

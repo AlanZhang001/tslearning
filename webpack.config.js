@@ -43,6 +43,15 @@ module.exports = env => {
                 'text': 'text-loader'
             }
         },
+        devServer: {
+            contentBase: path.join(__dirname, "./"),
+            port: 9000,
+            open:true,
+            index:'./site/.html',
+            inline:true,
+            hot:false,
+            compress:true
+        },
         externals: {
             jquery: 'jQuery'
         },
