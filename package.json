@@ -4,7 +4,6 @@
   "description": "<https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm install",
     "start": "webpack-dev-server --config webpack.config.js"
   },
   "repository": {

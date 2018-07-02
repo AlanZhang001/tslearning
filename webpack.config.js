@@ -11,7 +11,7 @@ var entryMap = getEntrys();
  * @return {Object} [入口名称及路径]
  */
 function getEntrys() {
-    var rootPath = './app/scripts';
+    var rootPath = './app/scripts/';
     var entry = {};
     var files = glob.sync('./app/scripts/**/*Main.js');
 
@@ -22,14 +22,13 @@ function getEntrys() {
     return entry;
 }
 
+console.log(entryMap)
 
 module.exports = env => {
     var isProdEnv = env && env.prod;
 
     return {
-        entry: {
-            indexMain:'./app/scripts/indexMain.js'
-        },
+        entry: entryMap,
         resolve: {
             modules: [
                 './app/scripts',
@@ -38,7 +37,7 @@ module.exports = env => {
             alias: {
                 'vue': 'vue/dist/vue'
             },
-            extensions: [".ts", ".tsx", ".js", ".json",'.vue']
+            extensions: ['.ts', '.tsx', '.js', '.json', '.vue']
         },
         resolveLoader: {
             alias: {
@@ -48,7 +47,11 @@ module.exports = env => {
         devServer: {
             contentBase: path.join(__dirname, './app/'),
             publicPath: '/scripts-build',
-            port: 8878
+            port: 8878,
+            open: true,
+            index: '/site/demo.html',
+            inline: true,
+            compress: true
         },
         externals: {
             jquery: 'jQuery'
@@ -60,23 +63,21 @@ module.exports = env => {
             }, {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
-            },
-            {
+            }, {
                 test: /\.tsx?$/,
-                loader: "ts-loader"
-            },
-            {
+                loader: 'ts-loader'
+            }, {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             }, {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: [{
-                    loader:'source-map-loader',
-                    options:{
-                        enforce: "pre"
+                    loader: 'source-map-loader',
+                    options: {
+                        enforce: 'pre'
                     }
-                },{
+                }, {
                     loader: 'babel-loader',
                 }]
             }]
