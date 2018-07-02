@@ -27,7 +27,9 @@ module.exports = env => {
     var isProdEnv = env && env.prod;
 
     return {
-        entry: entryMap,
+        entry: {
+            indexMain:'./app/scripts/indexMain.js'
+        },
         resolve: {
             modules: [
                 './app/scripts',
@@ -44,13 +46,9 @@ module.exports = env => {
             }
         },
         devServer: {
-            contentBase: path.join(__dirname, "./"),
-            port: 9000,
-            open:true,
-            index:'./site/.html',
-            inline:true,
-            hot:false,
-            compress:true
+            contentBase: path.join(__dirname, './app/'),
+            publicPath: '/scripts-build',
+            port: 8878
         },
         externals: {
             jquery: 'jQuery'
