@@ -7,11 +7,18 @@
 }
 </style>
 <template>
-    <select @change="onChange" v-model="selecthour" class="ui-form-text sem-input selectHour" :disabled="disabled">
-        <option v-for="(name,key) in options" :value="key" :key="key">{{name}}</option>
-    </select>
+    <div>
+        <select @change="onChange" v-model="selecthour" class="ui-form-text sem-input selectHour" :disabled="disabled">
+            <option v-for="(name,key) in options" :value="key" :key="key">{{name}}</option>
+        </select>
+        <p>ts实例：{{student}}</p>
+    </div>
 </template>
 <script>
+import {Student} from '../Student.ts';
+
+var s = new Student('alan','+','thobian2');
+console.log(s);
 export default{
     props:{
         disabled:{
@@ -37,6 +44,7 @@ export default{
     },
     data:function(){
         return {
+            student: s,
             selecthour: this.value
         };
     },

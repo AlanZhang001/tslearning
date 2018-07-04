@@ -49,9 +49,12 @@ module.exports = env => {
             publicPath: '/scripts-build',
             port: 8878,
             open: true,
-            index: '/site/demo.html',
+            hot: true,
+            openPage: '/site/vueDemo.html',
+            overlay: true,
             inline: true,
-            compress: true
+            compress: true,
+            clientLogLevel: 'info'
         },
         externals: {
             jquery: 'jQuery'
@@ -84,7 +87,9 @@ module.exports = env => {
         },
         devtool: isProdEnv ? 'hidden-source-map' : 'source-map',
         plugins: ((function() {
-            var _plugins = [];
+            var _plugins = [
+                new webpack.HotModuleReplacementPlugin()
+            ];
 
             return _plugins;
         })()),
