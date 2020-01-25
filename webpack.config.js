@@ -56,9 +56,6 @@ module.exports = env => {
             compress: true,
             clientLogLevel: 'info'
         },
-        externals: {
-            jquery: 'jQuery'
-        },
         module: {
             rules: [{
                 test: /\.html$/,
