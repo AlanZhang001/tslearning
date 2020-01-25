@@ -19,6 +19,7 @@ import {Student} from '../Student.ts';
 
 var s = new Student('alan','+','thobian2');
 console.log(s);
+
 export default{
     props:{
         disabled:{
