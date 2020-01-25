@@ -1,8 +1,8 @@
 /*global module*/
-var webpack = require('webpack');
-var path = require('path');
-var glob = require('glob');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const glob = require('glob');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 var entryMap = getEntrys();
 
@@ -21,8 +21,6 @@ function getEntrys() {
 
     return entry;
 }
-
-console.log(entryMap)
 
 module.exports = env => {
     var isProdEnv = env && env.prod;
