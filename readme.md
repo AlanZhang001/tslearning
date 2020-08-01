@@ -30,7 +30,8 @@ var Student = /** @class */ (function () {
 enum Color {Red, Green, Blue}
 let c: Color = Color.Green;
 
-3. 在TypeScript里，只在两个类型内部的结构兼容那么这两个类型就是兼容的。 这就允许我们在实现接口时候只要保证包含了接口要求的结构就可以，而不必明确地使用 implements语句。
+3. 在TypeScript里，只在两个类型内部的结构兼容，那么这两个类型就是兼容的。
+这就允许我们在实现接口时候只要保证包含了接口要求的结构就可以，而不必明确地使用 implements语句。
 
 interface Person {
     firstName: string;
@@ -95,6 +96,8 @@ let strLength: number = (someValue as string).length;
 1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
 
 ## 2. 变量申明
+
+基本上是es6 let 和 const的区别
 
 ## 3. 接口
 ```ts
