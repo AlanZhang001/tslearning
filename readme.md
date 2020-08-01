@@ -1,5 +1,7 @@
 # TS 学习
 
+[TOC]
+
 ## 参考教程
 <https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>
 
@@ -42,7 +44,7 @@ let user = { firstName: "Jane", lastName: "User" };
 greeter(user);
 ```
 
-## 基础类型
+## 1. 基础类型
 
 #### 枚举类
 
@@ -92,7 +94,9 @@ let strLength: number = (someValue as string).length;
 这里的意思是说，
 1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
 
-## 接口
+## 2. 变量申明
+
+## 3. 接口
 ```ts
 interface SquareConfig {
     // 可选属性,接口里的属性不全都是必需的,可选属性的好处:可以对可能存在的属性进行预定义，可以做提示
