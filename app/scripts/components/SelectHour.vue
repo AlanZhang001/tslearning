@@ -17,6 +17,7 @@
 <script>
 import {Student} from '../Student.ts';
 
+new Student('a',)
 var s = new Student('alan','+','thobian2');
 console.log(s);
 

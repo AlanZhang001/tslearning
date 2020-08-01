@@ -42,7 +42,38 @@ let user = { firstName: "Jane", lastName: "User" };
 greeter(user);
 ```
 
-## 基础类型-注意点
+## 基础类型
+
+#### 枚举类
+
+```js
+// 取值默认为：0,1,2
+enum Color {Red, Green, Blue}
+
+// green 的值为3，ywello 为4
+enum Color {Red  = 2, Green, Blue = 3, yellow};
+
+enum Color {Red  = 2, Green, Blue=3, yellow = 'yellow'};
+
+```
+1. 默认情况下，从0开始为第一个元素编号。后面的元素自加1, 默认是数字。也可以主动为每个元素指定其他类型的值
+2. 如果第一个元素有指定值，后面为主动指定值的元素自加1。如果元素已经指定了值，则忽略该元素，继续为下一个为指定值的元素自加1
+
+#### any
+
+```ts
+let notSure: any = 4;
+notSure.ifItExists(); // okay, ifItExists might exist at runtime
+notSure.toFixed();    // okay, toFixed exists (but the compiler doesn't check)
+```
+
+1. any类型的变量，在调用方法时，会忽略类型检查，即便值没有对应方法，编译时也不会报错。因为可能在运行时存在某个方法(比如在运行时给Number.prototype加上ifItExists方法。
+2. 上面方法，在运行时才会报错，因为Number 4的确不存在ifItExists方法
+
+#### void
+
+声明一个void类型的变量没有什么大用，因为你只能为它赋予undefined和null
+
 #### 类型断言
 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。
 
@@ -55,9 +86,13 @@ let strLength: number = (<string>someValue).length;
 // 方式2,as 形式,在TypeScript里使用JSX时，只有 as语法断言是被允许的。
 let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
+
 ```
 
-#### 接口
+这里的意思是说，
+1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
+
+## 接口
 ```ts
 interface SquareConfig {
     // 可选属性,接口里的属性不全都是必需的,可选属性的好处:可以对可能存在的属性进行预定义，可以做提示
