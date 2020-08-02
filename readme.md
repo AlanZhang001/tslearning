@@ -106,10 +106,17 @@ interface SquareConfig {
     color?: string;
     // 只读属性，只能在对象刚刚创建的时候修改其值，其他情况不允许修改
     readonly x: number;
+    // 如果带有定义的类型的color和width属性，并且还会带有任意数量的其它属性，那么我们可以这样定义它
+    [propName: string]: any;
+    // 定义function，（）中的为参数列表，：后的值为返回值
+    (source: string, subString: string): boolean;
 }
 
 // TypeScript具有ReadonlyArray<T>类型，确保数组创建后再也不能被修改。
-// ro元素及属性都不能被秀爱
+// ro元素及属性都不能被修改
+let a: number[] = [1, 2, 3, 4];
 let ro: ReadonlyArray<number> = a;
+// error!
+ro[0] = 12;
 
 ```
