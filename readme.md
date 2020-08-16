@@ -108,6 +108,13 @@ interface SquareConfig {
     readonly x: number;
     // 如果带有定义的类型的color和width属性，并且还会带有任意数量的其它属性，那么我们可以这样定义它
     [propName: string]: any;
+    // 定义一个具名函数
+    setTime(d: Date);
+
+}
+
+// 单独定义函数类型，只要函数参数和返回值符合就行
+interface SearchFunc {
     // 定义function，（）中的为参数列表，：后的值为返回值
     (source: string, subString: string): boolean;
 }
@@ -120,3 +127,6 @@ let ro: ReadonlyArray<number> = a;
 ro[0] = 12;
 
 ```
+
+## tsconfig.json
+- 假设我们包含了index.ts，那么index.d.ts和index.js会被排除在外。 通常来讲，不推荐只有扩展名的不同来区分同目录下的文件。

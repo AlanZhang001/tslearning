@@ -1,7 +1,16 @@
+interface SquareConfig {
+    color?: string;
+    width?: number;
+    [propName: string]: any;
+}
+
 class Student {
     fullName: string;
     constructor(public firstName, public middleInitial, public lastName) {
         this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+    hello(test: SquareConfig){
+
     }
 }
 
