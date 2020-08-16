@@ -130,3 +130,4 @@ ro[0] = 12;
 
 ## tsconfig.json
 - 假设我们包含了index.ts，那么index.d.ts和index.js会被排除在外。 通常来讲，不推荐只有扩展名的不同来区分同目录下的文件。
+

@@ -5,5 +5,6 @@
     },
     "include": [
         "./app/scripts/**/*.ts"
-    ]
+    ],
+    "noEmitOnError": true
 }

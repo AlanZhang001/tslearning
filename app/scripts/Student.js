@@ -24,11 +24,3 @@ notSure.ifItExists(); // okay, ifItExists might exist at runtime
 notSure.toFixed();
 var someValue = "this is a string";
 var strLength = someValue.length;
-var Clock = /** @class */ (function () {
-    function Clock(h, m) {
-    }
-    Clock.prototype.setTime = function (d) {
-        this.currentTime = d;
-    };
-    return Clock;
-}());

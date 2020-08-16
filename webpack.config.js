@@ -2,7 +2,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const glob = require('glob');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 var entryMap = getEntrys();
 
