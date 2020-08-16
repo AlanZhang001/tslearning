@@ -98,7 +98,20 @@ let strLength: number = (someValue as string).length;
 
 ## 2. 变量申明
 
-基本上是es6 let 和 const的区别
+- es6中的二进制、八进制写法在编译成js时，会转换成10进制的写法。
+```js
+// ts：
+// ES6 中的二进制表示法
+let binaryLiteral: number = 0b1010;
+// ES6 中的八进制表示法
+let octalLiteral: number = 0o744;
+
+// js:
+// ES6 中的二进制表示法
+var binaryLiteral = 10;
+// ES6 中的八进制表示法
+var octalLiteral = 484;
+```
 
 ## 3. 接口
 ```ts
