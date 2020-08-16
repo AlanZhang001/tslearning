@@ -99,6 +99,7 @@ let strLength: number = (someValue as string).length;
 ## 2. 变量申明
 
 - es6中的二进制、八进制写法在编译成js时，会转换成10进制的写法。
+- 字符串模板也会转换为字符串拼接
 ```js
 // ts：
 // ES6 中的二进制表示法
