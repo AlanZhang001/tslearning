@@ -3,7 +3,8 @@
 [TOC]
 
 ## 参考教程
-<https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>
+- <https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>
+- <https://ts.xcatliu.com/>
 
 ## 笔记
 ```js
