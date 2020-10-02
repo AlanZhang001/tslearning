@@ -42,7 +42,7 @@ var octalLiteral = 484;
 
 #### 类型别名
 - 类型别名用来给一个类型起个新名字。
-- 别名写法建议用pascal写法
+- 别名写法建议用pascal写法(TS官方的写法)
 
 ```ts
 type Name = string;
