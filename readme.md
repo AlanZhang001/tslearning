@@ -40,6 +40,23 @@ var octalLiteral = 484;
 
 ### 1. 数据类型
 
+#### 类型别名
+- 类型别名用来给一个类型起个新名字。
+- 别名写法建议用pascal写法
+
+```ts
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+function getName(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
+    }
+}
+```
+
 #### void
 - 可以用 void 表示没有任何返回值的函数。
 - 声明一个void类型的变量没有什么大用，因为你只能为它赋予undefined和null
