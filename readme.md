@@ -83,14 +83,7 @@ let myType: string | number;
 - 当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法
 - 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型,此后调用方法时会更具推断出来的类型做检查
 
-#### 数组
-
-#### 函数
-
-其他原始数据类型都比较好理解。
-
-
-#### 2. 接口
+#### 接口
 ```ts
 // 定义对象类型
 interface ISquareConfig {
@@ -124,7 +117,45 @@ ro[0] = 12;
 
 - 建议接口的名称加上 I 前缀。
 
-### 3. 类型推论
+#### 数组
+
+```ts
+// 「类型 + 方括号」表示：
+let arr: number[] = [1,2,3];
+// 数组泛型：
+let arr: Array<number> = [1,2,3];
+// 用接口表示数字，相当于描述一个负责的数据类型,一般不会这么做
+interface NumberArray {
+    [index: number]: number;
+}
+let arr: NumberArray = [1, 1, 2, 3, 5];
+```
+
+使用接口的方式来描述数组，一般是在用于类数组的定义
+```ts
+function sum() {
+    let args: {
+        [index: number]: number;
+        length: number;
+        callee: Function;
+    } = arguments;
+}
+// 等同于
+interface IArguments {
+    [index: number]: any;
+    length: number;
+    callee: Function;
+}
+function sum() {
+    let args: IArguments = arguments;
+}
+```
+
+#### 函数
+
+其他原始数据类型都比较好理解。 
+
+### 2. 类型推论
 
 如果没有明确的指定类型，那么 TypeScript 会依照类型推论的规则推断出一个类型。
 
@@ -135,7 +166,7 @@ let myFavoriteNumber = 'seven';
 myFavoriteNumber = 7;
 ```
 
-### 4. 类型断言
+### 3. 类型断言
 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。
 
 类型断言有两种形式:
@@ -155,7 +186,7 @@ let strLength: number = (someValue as string).length;
 
 ### 5. 声明文件
 
-### 6. 内置对象
+### 5. 内置对象
 - JavaScript 中有很多内置对象，它们可以直接在 TypeScript 中当做定义好了的类型。
 - ECMAScript 标准提供的内置对象有：Boolean、Error、Date、RegExp 等
 - DOM 和 BOM 提供的内置对象有： Document、HTMLElement、Event、NodeList 等。
