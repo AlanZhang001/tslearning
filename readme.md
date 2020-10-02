@@ -252,13 +252,37 @@ function isFish(animal: Cat | Fish) {
 }
 ```
 
+类型断言和类型声明的区别：
+```js
+interface Animal {
+    name: string;
+}
+interface Cat {
+    name: string;
+    run(): void;
+}
+
+const animal: Animal = {
+    name: 'tom'
+};
+// 正确执行
+// animal 断言为 Cat，只需要满足 Animal 兼容 Cat 或 Cat 兼容 Animal 即可
+// TypeScript 是结构类型系统，类型之间的对比只会比较它们最终的结构，而会忽略它们定义时的关系，所以这里cat是兼容Animal的
+let tom = animal as Cat;
+
+// 报错
+// animal 赋值给 tom，需要满足 Cat 兼容 Animal 才行
+// 类型声明是比类型断言更加严格
+let tom: Cat = animal;
+```
+
 关于类型断言：
 1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
 2. 滥用类型断言可能会导致运行时错误
 3. 可以将一个父类断言为更加具体的子类
 4. 可以将任何一个类型断言为 any
 5. 可以将 any 断言为一个具体的类型
-
+6. 要使得 A 能够被断言为 B，只需要 A 兼容 B 或 B 兼容 A 即可。或者说，A和B可以用继承的关系来描述就可以在A和B之间做断言
 
 ### 4. 声明文件
 
