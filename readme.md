@@ -104,6 +104,16 @@ let myType: string | number;
 - 当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法
 - 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型,此后调用方法时会更具推断出来的类型做检查
 
+#### 内置对象
+- JavaScript 中有很多内置对象，它们可以直接在 TypeScript 中当做定义好了的类型。
+- ECMAScript 标准提供的内置对象有：Boolean、Error、Date、RegExp 等
+- DOM 和 BOM 提供的内置对象有： Document、HTMLElement、Event、NodeList 等。
+- TypeScript 核心库的[定义文件](https://github.com/Microsoft/TypeScript/tree/master/src/lib)中定义了所有浏览器环境需要用到的类型，并且是预置在 TypeScript 中的。
+- Node.js 不是内置对象的一部分，如果想用 TypeScript 写 Node.js，则需要引入第三方声明文件：
+```sh
+npm install @types/node --save-dev
+```
+
 ## 2. 变量申明
 
 - es6中的二进制、八进制写法在编译成js时，会转换成10进制的写法。
@@ -153,4 +163,3 @@ ro[0] = 12;
 
 ## tsconfig.json
 - 假设我们包含了index.ts，那么index.d.ts和index.js会被排除在外。 通常来讲，不推荐只有扩展名的不同来区分同目录下的文件。
-
