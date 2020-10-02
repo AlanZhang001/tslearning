@@ -1,7 +1,10 @@
-node_modules
-bower_components
-npm-debug.log
 .idea
-*.iml
-.dist
-scripts-build
+node_modules
+coverage
+docs
+package-lock.json
+.history
+test/.jestcache
+test/coverage
+.vscode
+.DS_Store
