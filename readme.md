@@ -153,13 +153,62 @@ function sum() {
 
 #### 函数
 
-其他原始数据类型都比较好理解。 
+```ts
+// 函数声明
+function sum(x: number, y: number): number {
+    return x + y;
+}
+
+// 函数表达式
+// 这里的(x: number, y: number) => number用于形容mySum的类型
+// =>用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。不是ES6的兼容函数
+let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
+    return x + y;
+};
+
+// 通过接口的形式来定义函数
+interface IMySum{
+    (x:number,y:number): number
+}
+let mySum: IMySum = function (x: number, y: number): number {
+    return x + y;
+};
+
+// 函数可选参数通过?定义
+// 函数剩余参数通过 ...rest: any[]定义即可
+function push(array: any[], ...items: any[]) {
+     
+}
+```
+
+#### 函数重载
+
+- 重载允许一个函数接受不同数量或类型的参数时，作出不同的处理。
+- 重载只是TS层面的定义，在JS层面没有重载一说
+- js本身没有重载，那ts为什么要提供重载的写法？
+    - ts的重载只是重载函数声明，而不是传统Java，c++的重载，只是告诉调用者我可以有这几种调用方式。
+    - 通过重载的函数声明，可以根据调用方式作出正确的代码提示和类型约束
+
+```ts
+function reverse(x: number): number;
+function reverse(x: string): string;
+// 前面是重载的类型
+// 最后是具体方法的实现
+// TypeScript 会优先从最前面的函数定义开始匹配，所以多个函数定义如果有包含关系，需要优先把精确的定义写在前面
+function reverse(x: number | string): number | string {
+    if (typeof x === 'number') {
+        return Number(x.toString().split('').reverse().join(''));
+    } else if (typeof x === 'string') {
+        return x.split('').reverse().join('');
+    }
+}
+```
 
 ### 2. 类型推论
 
 如果没有明确的指定类型，那么 TypeScript 会依照类型推论的规则推断出一个类型。
 
-```js
+```ts
 // 未指定类型，会根据其赋值推断出一个类型
 let myFavoriteNumber = 'seven';
 // 编写代码时报错

@@ -24,3 +24,20 @@ notSure.ifItExists(); // okay, ifItExists might exist at runtime
 notSure.toFixed();
 var someValue = "this is a string";
 var strLength = someValue.length;
+var mySum = function (x, y) {
+    return x + y;
+};
+function push(array) {
+    var items = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        items[_i - 1] = arguments[_i];
+    }
+}
+function reverse(x) {
+    if (typeof x === 'number') {
+        return Number(x.toString().split('').reverse().join(''));
+    }
+    else if (typeof x === 'string') {
+        return x.split('').reverse().join('');
+    }
+}
