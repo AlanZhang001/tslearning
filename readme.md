@@ -292,9 +292,9 @@ let tom: Cat = animal;
 - DOM 和 BOM 提供的内置对象有： Document、HTMLElement、Event、NodeList 等。
 - TypeScript 核心库的[定义文件](https://github.com/Microsoft/TypeScript/tree/master/src/lib)中定义了所有浏览器环境需要用到的类型，并且是预置在 TypeScript 中的。
 - Node.js 不是内置对象的一部分，如果想用 TypeScript 写 Node.js，则需要引入第三方声明文件：
-```sh
-npm install @types/node --save-dev
-```
+    ```sh
+    npm install @types/node --save-dev
+    ```
 
 ## 二、工程化
 
