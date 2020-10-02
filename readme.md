@@ -216,7 +216,7 @@ myFavoriteNumber = 7;
 ```
 
 ### 3. 类型断言
-类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。
+类型断言好比其它语言里的类型转换（实际不会做类型转换），但是不进行特殊的数据检查和解构。
 
 类型断言有两种形式:
 ```ts
@@ -225,15 +225,42 @@ let someValue: any = "this is a string";
 let strLength: number = (<string>someValue).length;
 
 // 方式2,as 形式,在TypeScript里使用JSX时，只有 as语法断言是被允许的。
+// 建议用这一种写法
 let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 
 ```
 
-这里的意思是说，
-1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
+类型断言可以绕过ts编译器，在联合类型推断时有用。
+```ts
+interface Cat {
+    name: string;
+    run(): void;
+}
+interface Fish {
+    name: string;
+    swim(): void;
+}
 
-### 5. 声明文件
+function isFish(animal: Cat | Fish) {
+    // animal为联合类型，只能防伪Cat和Fish共有属性。如果直接写成typeof animal.swim === 'function' 会报错
+    // 通过类型断言，可以绕过类型检测
+    if (typeof (animal as Fish).swim === 'function') {
+        return true;
+    }
+    return false;
+}
+```
+
+关于类型断言：
+1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
+2. 滥用类型断言可能会导致运行时错误
+3. 可以将一个父类断言为更加具体的子类
+4. 可以将任何一个类型断言为 any
+5. 可以将 any 断言为一个具体的类型
+
+
+### 4. 声明文件
 
 ### 5. 内置对象
 - JavaScript 中有很多内置对象，它们可以直接在 TypeScript 中当做定义好了的类型。
@@ -263,3 +290,5 @@ npm install @types/node --save-dev
     "noEmitOnError": true
 }
 ```
+
+## node项目如何使用ts
