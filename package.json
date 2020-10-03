@@ -18,16 +18,21 @@
     "bugs": {
         "url": "https://github.com/AlanZhang001/tslearning/issues"
     },
+    "pre-commit":[
+        "tseslint"
+    ],
     "homepage": "https://github.com/AlanZhang001/tslearning#readme",
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.35",
         "@babel/preset-env": "^7.0.0-beta.35",
+        "@typescript-eslint/eslint-plugin": "^4.3.0",
         "@typescript-eslint/parser": "^4.3.0",
         "babel-loader": "^8.0.0-beta.0",
         "css-loader": "^0.23.1",
         "eslint": "^5.16.0",
         "eslint-config-futu": "^1.0.3",
         "glob": "^7.0.4",
+        "pre-commit": "^1.2.2",
         "source-map-loader": "^0.2.3",
         "style-loader": "^0.13.0",
         "text-loader": "0.0.1",
@@ -41,7 +46,6 @@
         "webpack-dev-server": "^3.1.11"
     },
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.3.0",
         "vue": "^2.5.16"
     }
 }
