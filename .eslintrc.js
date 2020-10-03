@@ -10,6 +10,7 @@ module.exports = {
     rules:{
         "semi": ["error", "always"],
         "no-console": 0,
+        "no-shadow":0,
          // 禁止使用 var
          'no-var': "error",
          // 优先使用 interface 而不是 type
