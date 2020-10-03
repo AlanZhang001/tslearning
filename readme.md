@@ -411,6 +411,8 @@ var Student = /** @class */ (function () {
 }());
 ```
 
+详细的看这里：https://ts.xcatliu.com/advanced/class.html，基本就是java的一套。
+
 ## 二、工程化
 
 ## 三、tsconfig.json
