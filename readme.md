@@ -413,6 +413,10 @@ var Student = /** @class */ (function () {
 
 详细的看这里：https://ts.xcatliu.com/advanced/class.html，基本就是java的一套。
 
+### 7. 接口和类
+TypeScript 会支持接口继承类，其他的继承和实现方式和java类似。
+没什么可总结的，每一部分都很重要：https://ts.xcatliu.com/advanced/class-and-interfaces.html
+
 ## 二、工程化
 
 ## 三、tsconfig.json

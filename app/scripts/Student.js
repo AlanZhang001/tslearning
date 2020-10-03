@@ -42,3 +42,11 @@ function reverse(x) {
     }
 }
 var directions = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+var Point = /** @class */ (function () {
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    return Point;
+}());
+var point3d = { x: 1, y: 2, z: 3 };
