@@ -50,3 +50,11 @@ var Point = /** @class */ (function () {
     return Point;
 }());
 var point3d = { x: 1, y: 2, z: 3 };
+var foo = /** @class */ (function () {
+    function foo() {
+        this.bar = 'hello';
+        this.baz = 'world';
+        // ...
+    }
+    return foo;
+}());

@@ -259,6 +259,24 @@ function push(array: any[], ...items: any[]) {
 }
 ```
 
+#### 类类型
+
+与接口类型类似，只是类类型的方法可以有具体的实现。
+```ts
+class Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  sayHi(): string {
+    return `My name is ${this.name}`;
+  }
+}
+
+let a: Animal = new Animal('Jack');
+console.log(a.sayHi()); // My name is Jack
+```
+
 #### 函数重载
 
 - 重载允许一个函数接受不同数量或类型的参数时，作出不同的处理。
@@ -414,7 +432,7 @@ var Student = /** @class */ (function () {
 详细的看这里：https://ts.xcatliu.com/advanced/class.html，基本就是java的一套。
 
 ### 7. 接口和类
-TypeScript 会支持接口继承类，其他的继承和实现方式和java类似。
+TypeScript 会支持接口继承类(本身是类型的继承)，其他的继承和实现方式和java类似。
 没什么可总结的，每一部分都很重要：https://ts.xcatliu.com/advanced/class-and-interfaces.html
 
 ## 二、工程化
