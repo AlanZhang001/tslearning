@@ -354,6 +354,21 @@ let tom = animal as Cat;
 let tom: Cat = animal;
 ```
 
+在TypeScript里，只在两个类型内部的结构兼容，那么这两个类型就是兼容的。
+这就允许我们在实现接口时候只要保证包含了接口要求的结构就可以，而不必明确地使用 implements语句。
+```ts
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+function greeter(person: Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+let user = { firstName: "Jane", lastName: "User" };
+// 正常接收
+greeter(user);
+```
+
 关于类型断言：
 1. 也许变量申明的时候any类型，但是在调用的时候可以加上类型断言，表示这个变量就是某种类型，如果实际不是就报错(这就是断言)
 2. 滥用类型断言可能会导致运行时错误
@@ -375,6 +390,26 @@ let tom: Cat = animal;
     ```
 
 ### 6. 类
+
+在构造函数的参数上使用public等同于创建了同名的成员变量。
+```TS
+class Student {
+    fullName: string;
+    constructor(public firstName, public middleInitial, public lastName) {
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+}
+// JS:
+var Student = /** @class */ (function () {
+    function Student(firstName, middleInitial, lastName) {
+        this.firstName = firstName;
+        this.middleInitial = middleInitial;
+        this.lastName = lastName;
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+    return Student;
+}());
+```
 
 ## 二、工程化
 
