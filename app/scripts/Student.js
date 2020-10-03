@@ -5,24 +5,24 @@ var Student = /** @class */ (function () {
         this.firstName = firstName;
         this.middleInitial = middleInitial;
         this.lastName = lastName;
-        this.fullName = firstName + " " + middleInitial + " " + lastName;
+        this.fullName = firstName + ' ' + middleInitial + ' ' + lastName;
     }
     Student.prototype.hello = function (test) {
     };
     return Student;
 }());
 exports.Student = Student;
-var Color;
-(function (Color) {
-    Color[Color["Red"] = 2] = "Red";
-    Color[Color["Green"] = 3] = "Green";
-    Color[Color["Blue"] = 3] = "Blue";
-    Color["yellow"] = "rrr";
-})(Color || (Color = {}));
+var ColorEnum;
+(function (ColorEnum) {
+    ColorEnum[ColorEnum["Red"] = 2] = "Red";
+    ColorEnum[ColorEnum["Green"] = 3] = "Green";
+    ColorEnum[ColorEnum["Blue"] = 3] = "Blue";
+    ColorEnum["yellow"] = "rrr";
+})(ColorEnum || (ColorEnum = {}));
 var notSure = 4;
 notSure.ifItExists(); // okay, ifItExists might exist at runtime
 notSure.toFixed();
-var someValue = "this is a string";
+var someValue = 'this is a string';
 var strLength = someValue.length;
 var mySum = function (x, y) {
     return x + y;

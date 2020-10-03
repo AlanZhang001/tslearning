@@ -431,11 +431,16 @@ var Student = /** @class */ (function () {
 
 详细的看这里：https://ts.xcatliu.com/advanced/class.html，基本就是java的一套。
 
-### 7. 接口和类
+### 7. 接口和类[很重要，并非看一遍就能懂]
 TypeScript 会支持接口继承类(本身是类型的继承)，其他的继承和实现方式和java类似。
 没什么可总结的，每一部分都很重要：https://ts.xcatliu.com/advanced/class-and-interfaces.html
 
 ## 二、工程化
+### 1. lint检查
+```sh
+npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+配置文件见：.eslintrc.js
 
 ## 三、tsconfig.json
 - 假设我们包含了index.ts，那么index.d.ts和index.js会被排除在外。 通常来讲，不推荐只有扩展名的不同来区分同目录下的文件。

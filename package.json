@@ -1,46 +1,47 @@
 {
-  "name": "tslearning",
-  "version": "1.0.0",
-  "description": "<https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js",
-    "dev": "webpack --progress --watch --config=webpack.config.js",
-    "prod": "webpack --env.prod --config=webpack.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlanZhang001/tslearning.git"
-  },
-  "author": "alanzhang",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AlanZhang001/tslearning/issues"
-  },
-  "homepage": "https://github.com/AlanZhang001/tslearning#readme",
-  "devDependencies": {
-    "@babel/core": "^7.0.0-beta.35",
-    "@babel/preset-env": "^7.0.0-beta.35",
-    "babel-loader": "^8.0.0-beta.0",
-    "css-loader": "^0.23.1",
-    "eslint": "^5.0.1",
-    "eslint-config-futu": "^1.0.3",
-    "exports-loader": "^0.6.2",
-    "extend": "^3.0.0",
-    "glob": "^7.0.4",
-    "source-map-loader": "^0.2.3",
-    "style-loader": "^0.13.0",
-    "text-loader": "0.0.1",
-    "ts-loader": "^3.5.0",
-    "typescript": "^3.5.1",
-    "uglifyjs-webpack-plugin": "^1.0.1",
-    "vue-loader": "^13.6.0",
-    "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.1.0",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.11"
-  },
-  "dependencies": {
-    "vue": "^2.5.16"
-  }
+    "name": "tslearning",
+    "version": "1.0.0",
+    "description": "<https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>",
+    "main": "index.js",
+    "scripts": {
+        "tseslint": "eslint app --ext .ts",
+        "start": "webpack-dev-server --config webpack.config.js",
+        "dev": "webpack --progress --watch --config=webpack.config.js",
+        "prod": "webpack --env.prod --config=webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AlanZhang001/tslearning.git"
+    },
+    "author": "alanzhang",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AlanZhang001/tslearning/issues"
+    },
+    "homepage": "https://github.com/AlanZhang001/tslearning#readme",
+    "devDependencies": {
+        "@babel/core": "^7.0.0-beta.35",
+        "@babel/preset-env": "^7.0.0-beta.35",
+        "@typescript-eslint/parser": "^4.3.0",
+        "babel-loader": "^8.0.0-beta.0",
+        "css-loader": "^0.23.1",
+        "eslint": "^5.16.0",
+        "eslint-config-futu": "^1.0.3",
+        "glob": "^7.0.4",
+        "source-map-loader": "^0.2.3",
+        "style-loader": "^0.13.0",
+        "text-loader": "0.0.1",
+        "ts-loader": "^3.5.0",
+        "typescript": "^3.9.7",
+        "uglifyjs-webpack-plugin": "^1.0.1",
+        "vue-loader": "^13.6.0",
+        "vue-template-compiler": "^2.5.13",
+        "webpack": "^3.1.0",
+        "webpack-cli": "^3.0.8",
+        "webpack-dev-server": "^3.1.11"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.3.0",
+        "vue": "^2.5.16"
+    }
 }

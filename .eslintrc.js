@@ -1,17 +1,15 @@
 module.exports = {
+    parser: '@typescript-eslint/parser',
     root: true,
     parserOptions: {
         ecmaVersion: 2017,
-        sourceType: 'module',
-        ecmaFeatures: {
-            experimentalObjectRestSpread: true,
-        },
+        sourceType: 'module'
     },
-    extends: 'futu',
+    extends: ['futu'],
+    plugins:['@typescript-eslint'],
     rules:{
         "semi": ["error", "always"],
-        "no-console": 0,
-        "no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [] }]
+        "no-console": 0
     },
     globals:{
     },

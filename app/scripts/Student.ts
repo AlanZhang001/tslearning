@@ -1,5 +1,5 @@
 interface SquareConfig {
-    color?: string;
+    Enum?: string;
     width?: number;
     [propName: string]: any;
 }
@@ -7,27 +7,32 @@ interface SquareConfig {
 class Student {
     fullName: string;
     constructor(public firstName, public middleInitial, public lastName) {
-        this.fullName = firstName + " " + middleInitial + " " + lastName;
+        this.fullName = firstName + ' ' + middleInitial + ' ' + lastName;
     }
-    hello(test: SquareConfig){
+    hello(test: SquareConfig) {
 
     }
 }
 
-enum Color {Red  = 2, Green, Blue=3, yellow = 'rrr'}
+enum ColorEnum {
+    Red = 2,
+    Green,
+    Blue = 3,
+    yellow = 'rrr'
+}
 
 
 let notSure: any = 4;
 notSure.ifItExists(); // okay, ifItExists might exist at runtime
 notSure.toFixed();
-let someValue: any = "this is a string";
+let someValue: any = 'this is a string';
 let strLength: number = (someValue as string).length;
 
 export {
     Student
 };
-interface IMySum{
-    (x:number,y:number): number
+interface IMySum {
+    (x: number, y: number): number
 }
 let mySum: IMySum = function (x: number, y: number): number {
     return x + y;
@@ -66,7 +71,7 @@ interface Point3d extends Point {
     z: number;
 }
 
-let point3d: Point3d = {x: 1, y: 2, z: 3};
+let point3d: Point3d = { x: 1, y: 2, z: 3 };
 
 
 class foo {
@@ -74,6 +79,6 @@ class foo {
     baz = 'world';
 
     constructor() {
-      // ...
+        // ...
     }
-  }
+}
