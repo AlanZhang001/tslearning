@@ -57,6 +57,12 @@ function getName(n: NameOrResolver): Name {
 }
 ```
 
+#### 字符串字面量类型
+字符串字面量类型用来约束取值只能是某几个字符串中的一个。
+```ts
+type EventNames = 'click' | 'scroll' | 'mousemove';
+```
+
 #### void
 - 可以用 void 表示没有任何返回值的函数。
 - 声明一个void类型的变量没有什么大用，因为你只能为它赋予undefined和null
@@ -68,9 +74,9 @@ function getName(n: NameOrResolver): Name {
 let anval;
 let notSure: any = 4;
 // okay, ifItExists might exist at runtime
-notSure.ifItExists(); 
+notSure.ifItExists();
 // okay, toFixed exists (but the compiler doesn't check)
-notSure.toFixed();    
+notSure.toFixed();
 ```
 
 1. any类型的变量，在调用方法时，会忽略类型检查，即便值没有对应方法，编译时也不会报错。因为可能在运行时存在某个方法(比如在运行时给Number.prototype加上ifItExists方法。
@@ -79,16 +85,49 @@ notSure.toFixed();
 
 #### 枚举类
 
+普通枚举
 ```js
 // 取值默认为：0,1,2
 enum Color {Red, Green, Blue}
-
 // green 的值为3，ywello 为4
 enum Color {Red  = 2, Green, Blue = 3, yellow};
-
+// 允许自定义
 enum Color {Red  = 2, Green, Blue=3, yellow = 'yellow'};
+// 允许计算成员，但是必须在最后或则其后的元素有赋值
+enum Color {Red  = 2, Green, Blue=3, yellow = 'yellow'.length};
+// 允许重复Wed===3
+enum Days {Sun = 3, Mon = 1, Tue, Wed, Thu, Fri, Sat};
 
+// 这类枚举编译后的结果：
+var Days;
+(function (Days) {
+    Days[Days["Sun"] = 3] = "Sun";
+    Days[Days["Mon"] = 1] = "Mon";
+    Days[Days["Tue"] = 2] = "Tue";
+    Days[Days["Wed"] = 3] = "Wed";
+    Days[Days["Thu"] = 4] = "Thu";
+    Days[Days["Fri"] = 5] = "Fri";
+    Days[Days["Sat"] = 6] = "Sat";
+})(Days || (Days = {}));
 ```
+
+常数枚举: 通过const enum申明的枚举类型
+```js
+const enum Directions {
+    Up,
+    Down,
+    Left,
+    Right,
+    // 常量枚举不能存在计算成员
+    // ESC = 'blue'.lenght
+}
+
+let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+
+// 编译结果:
+var directions = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+```
+
 1. 默认情况下，从0开始为第一个元素编号。后面的元素自加1, 默认是数字。也可以主动为每个元素指定其他类型的值
 2. 如果第一个元素有指定值，后面为主动指定值的元素自加1。如果元素已经指定了值，则忽略该元素，继续为下一个为指定值的元素自加1
 
@@ -168,6 +207,28 @@ function sum() {
 }
 ```
 
+#### 元组
+
+- 数组中每个元素可以由不同类型组成，但是每个元素的类型需要符合 类型定义。
+
+```js
+// good
+let tom: [string, number] = ['Tom', 25];
+// good
+let tom: [string, number];
+tom[0] = 'Tom';
+// bad,数组和类型定义不一致
+let tom: [string, number] = ['tom'];
+// 越界的数组类型，需要，会被限制为元组中每个类型的联合类型
+// good
+tom.push(1);
+// bad,必须为string | number
+tom.push(true);
+// 不会报错，但是不太明白为什么
+tom.push(null);
+```
+
+
 #### 函数
 
 ```ts
@@ -194,7 +255,7 @@ let mySum: IMySum = function (x: number, y: number): number {
 // 函数可选参数通过?定义
 // 函数剩余参数通过 ...rest: any[]定义即可
 function push(array: any[], ...items: any[]) {
-     
+
 }
 ```
 
@@ -312,8 +373,6 @@ let tom: Cat = animal;
     ```sh
     npm install @types/node --save-dev
     ```
-
-### 6. 元组
 
 ## 二、工程化
 

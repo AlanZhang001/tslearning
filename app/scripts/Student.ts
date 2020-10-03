@@ -34,7 +34,7 @@ let mySum: IMySum = function (x: number, y: number): number {
 };
 
 function push(array: any[], ...items: any[]) {
-     
+
 }
 
 function reverse(x: number | string): number | string {
@@ -44,3 +44,12 @@ function reverse(x: number | string): number | string {
         return x.split('').reverse().join('');
     }
 }
+const enum Directions {
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+
