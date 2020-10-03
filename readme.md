@@ -374,6 +374,8 @@ let tom: Cat = animal;
     npm install @types/node --save-dev
     ```
 
+### 6. 类
+
 ## 二、工程化
 
 ## 三、tsconfig.json
