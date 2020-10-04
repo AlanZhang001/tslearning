@@ -459,4 +459,4 @@ npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 }
 ```
 
-## node项目如何使用ts
+这个很重要：[TypeScript如何解析模块](https://www.tslang.cn/docs/handbook/module-resolution.html#path-mapping)

@@ -4,7 +4,7 @@
     "description": "<https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html>",
     "main": "index.js",
     "scripts": {
-        "build":"tsc",
+        "build":"tsc --traceResolution",
         "tseslint": "eslint app --ext .ts",
         "start": "webpack-dev-server --config webpack.config.js",
         "dev": "webpack --progress --watch --config=webpack.config.js",
