@@ -8,3 +8,4 @@ test/.jestcache
 test/coverage
 .vscode
 .DS_Store
+app-build
