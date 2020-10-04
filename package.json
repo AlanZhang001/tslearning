@@ -18,7 +18,7 @@
     "bugs": {
         "url": "https://github.com/AlanZhang001/tslearning/issues"
     },
-    "pre-commit":[
+    "pre-commit": [
         "tseslint"
     ],
     "homepage": "https://github.com/AlanZhang001/tslearning#readme",
@@ -46,6 +46,8 @@
         "webpack-dev-server": "^3.1.11"
     },
     "dependencies": {
+        "@types/node": "^14.11.2",
+        "lodash": "^4.17.20",
         "vue": "^2.5.16"
     }
 }
