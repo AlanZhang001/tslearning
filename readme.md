@@ -442,6 +442,11 @@ npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 配置文件见：.eslintrc.js
 
+### 2. ts-loader
+
+- [webpack 2 or 3 需要使用ts-loader@3.x](https://www.npmjs.com/package/ts-loader#compatibility)
+- [webpack4需要使用ts-loader@4.x+](https://github.com/TypeStrong/ts-loader/tree/v4.0.0#compatibility)
+
 ## 三、tsconfig.json
 - 假设我们包含了index.ts，那么index.d.ts和index.js会被排除在外。 通常来讲，不推荐只有扩展名的不同来区分同目录下的文件。
 
